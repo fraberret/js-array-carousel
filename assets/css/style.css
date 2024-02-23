@@ -1,22 +1,23 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.slider{
+
+.slider {
     width: 80%;
-max-width: 800px;
-height: 350px;
-margin: auto;
-position: relative;
-margin-top: 5rem;
+    max-width: 800px;
+    height: 350px;
+    margin: auto;
+    position: relative;
+    margin-top: 5rem;
 }
 
-.slides{
-   max-width: 100%;
+.slides {
+    max-width: 100%;
     height: 100%;
-   
-    & img{
+
+    & img {
         width: 100%;
         height: 100%;
         max-height: 100%;
@@ -24,19 +25,32 @@ margin-top: 5rem;
         display: block;
     }
 
-    
+
 }
 
-img:not(.active){
+img:not(.active) {
     display: none;
+
+
 }
-.button_up{
+
+button {
+    padding: 5px 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.346);
+    color: white;
+    border: none;
+}
+
+.button_up {
     position: absolute;
     top: 0;
     right: 50%;
 
+
 }
-.button_down{
+
+.button_down {
     position: absolute;
     bottom: 0;
     right: 50%;
