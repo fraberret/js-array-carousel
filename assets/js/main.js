@@ -12,3 +12,15 @@ const activeImage= 0
 
 //seleziono dalla DOM 
 let slidesElement=document.querySelector('.slides')
+
+//creo un ciclo for per scorrere tra le immagini
+for (let index = 0; index < slides.length; index++) {
+    const slide = slides[index];
+    
+    //creo il markup 
+    const slidesMarkup=  `<img class="${ index===activeImage ?'active':''}" src="./assets/img/${slide}" alt="">`
+   
+    //inserisco il markup nella DOM
+    slidesElement.insertAdjacentHTML('beforeend', slidesMarkup)
+    
+}
