@@ -69,5 +69,16 @@ button {
         max-width: 100%;
         height: calc(100%/5);
         object-fit: cover;
+
+        
     }
+    & img:not(.view){
+            opacity: 50%;
+        }
 }
+
+.view{
+    border: 2px solid white;
+
+}
+

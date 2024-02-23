@@ -1,4 +1,4 @@
-console.log('It works');
+console.log('It worksss');
 
 /*
 MILESTONE 1
@@ -12,6 +12,8 @@ Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, c
 let slides = ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp']
 console.log(slides);
 
+
+
 //variabile dove salvo la posizione dell immagine attiva
 let activeImage = 0
 
@@ -21,6 +23,8 @@ let slidesElement = document.querySelector('.slides')
 //creo un ciclo for per scorrere tra le immagini
 for (let index = 0; index < slides.length; index++) {
     const slide = slides[index];
+    
+   
 
     //creo il markup 
     const slidesMarkup = `<img class="${index === activeImage ? 'active' : ''}" src="./assets/img/${slide}" alt="">`
@@ -43,16 +47,21 @@ document.querySelector('.button_up').addEventListener('click', function () {
     
     //salvo la classe active dalla DOM
     const currentImage = document.querySelector('img.active')
-    //console.log(currentImage);
+    const imageView= document.querySelector('img.view')
+
+    imageView.classList.remove('view')
+   
     
     //rimuovo la classe active dalla DOM
     currentImage.classList.remove('active')
     
     //salvo la lista delle immagini dalla DOM
     const allSlides = document.querySelectorAll('.slides img')
+    const allSlidesView = document.querySelectorAll('.scroll_image img')
     
     //aggiungo la classe active
     allSlides[activeImage].classList.add('active')
+    allSlidesView[activeImage].classList.add('view')
 })
 
 
@@ -70,15 +79,26 @@ document.querySelector('.button_down').addEventListener('click', function () {
     }
     //salvo la classe active dalla DOM
     const currentImage = document.querySelector('img.active')
-    //console.log(currentImage);
+    const imageView= document.querySelector('img.view')
 
+    imageView.classList.remove('view')
+   
+    
     //rimuovo la classe active dalla DOM
     currentImage.classList.remove('active')
     
     //salvo la lista delle immagini dalla DOM
     const allSlides = document.querySelectorAll('.slides img')
+    const allSlidesView = document.querySelectorAll('.scroll_image img')
     
     //aggiungo la classe active
     allSlides[activeImage].classList.add('active')
+    allSlidesView[activeImage].classList.add('view')
 
 })
+
+
+
+
+
+
