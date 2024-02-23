@@ -38,4 +38,6 @@ console.log(activeImage);
 const currentImage=document.querySelector('img.active')
 console.log(currentImage);
 currentImage.classList.remove('active')
+const allSlides= document.querySelectorAll('.slides img')
+allSlides[activeImage].classList.add('active')
 })
