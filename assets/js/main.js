@@ -9,35 +9,76 @@ Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, c
 */
 
 //creare un array
-let slides =['01.webp','02.webp','03.webp','04.webp','05.webp']
+let slides = ['01.webp', '02.webp', '03.webp', '04.webp', '05.webp']
 console.log(slides);
 
 //variabile dove salvo la posizione dell immagine attiva
-let activeImage= 0
+let activeImage = 0
 
 //seleziono dalla DOM 
-let slidesElement=document.querySelector('.slides')
+let slidesElement = document.querySelector('.slides')
 
 //creo un ciclo for per scorrere tra le immagini
 for (let index = 0; index < slides.length; index++) {
     const slide = slides[index];
-    
+
     //creo il markup 
-    const slidesMarkup=  `<img class="${ index===activeImage ?'active':''}" src="./assets/img/${slide}" alt="">`
-   
+    const slidesMarkup = `<img class="${index === activeImage ? 'active' : ''}" src="./assets/img/${slide}" alt="">`
+
     //inserisco il markup nella DOM
     slidesElement.insertAdjacentHTML('beforeend', slidesMarkup)
-    
+
 }
 //quando clicco freccia in alto
-document.querySelector('.button_up').addEventListener('click',function(){
+document.querySelector('.button_up').addEventListener('click', function () {
+    //aumento il valore di active image
+    activeImage++
+    console.log(activeImage);
 
-//aumento il valore di active image
-activeImage ++
-console.log(activeImage);
-const currentImage=document.querySelector('img.active')
-console.log(currentImage);
-currentImage.classList.remove('active')
-const allSlides= document.querySelectorAll('.slides img')
-allSlides[activeImage].classList.add('active')
+    //se scorrendo arriva alla fine ricomincia
+    if (activeImage > slides.length - 1) {
+        activeImage = 0
+
+    }
+    
+    //salvo la classe active dalla DOM
+    const currentImage = document.querySelector('img.active')
+    //console.log(currentImage);
+    
+    //rimuovo la classe active dalla DOM
+    currentImage.classList.remove('active')
+    
+    //salvo la lista delle immagini dalla DOM
+    const allSlides = document.querySelectorAll('.slides img')
+    
+    //aggiungo la classe active
+    allSlides[activeImage].classList.add('active')
+})
+
+
+//quando clicco fraccia in basso
+document.querySelector('.button_down').addEventListener('click', function () {
+
+    //aumento il valore di active image
+    activeImage--
+    console.log(activeImage);
+
+    //se scorrendo arriva alla fine ricomincia
+    if (activeImage < 0) {
+        activeImage = slides.length - 1
+
+    }
+    //salvo la classe active dalla DOM
+    const currentImage = document.querySelector('img.active')
+    //console.log(currentImage);
+
+    //rimuovo la classe active dalla DOM
+    currentImage.classList.remove('active')
+    
+    //salvo la lista delle immagini dalla DOM
+    const allSlides = document.querySelectorAll('.slides img')
+    
+    //aggiungo la classe active
+    allSlides[activeImage].classList.add('active')
+
 })
