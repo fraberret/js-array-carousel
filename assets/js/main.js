@@ -13,7 +13,7 @@ let slides =['01.webp','02.webp','03.webp','04.webp','05.webp']
 console.log(slides);
 
 //variabile dove salvo la posizione dell immagine attiva
-const activeImage= 0
+let activeImage= 0
 
 //seleziono dalla DOM 
 let slidesElement=document.querySelector('.slides')
@@ -29,9 +29,13 @@ for (let index = 0; index < slides.length; index++) {
     slidesElement.insertAdjacentHTML('beforeend', slidesMarkup)
     
 }
-
+//quando clicco freccia in alto
 document.querySelector('.button_up').addEventListener('click',function(){
 
-
-
+//aumento il valore di active image
+activeImage ++
+console.log(activeImage);
+const currentImage=document.querySelector('img.active')
+console.log(currentImage);
+currentImage.classList.remove('active')
 })
